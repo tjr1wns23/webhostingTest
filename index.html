@@ -8,6 +8,9 @@
   <br>
   <p2 id="result"></p2>
 
+  <br>
+  <br>
+
   <button onClick="getRandomByServer()">서버 주사위 굴리기</button>
   <br>
   <p2 id="retrunByServer"></p2>
@@ -20,8 +23,8 @@
 
   function getRandomByServer() {
     fetch("./random.html").then((response) => {
-      document.getElementById("retrunByServer").innerHTML = response;
-    }); 
+      document.getElementById("retrunByServer").innerHTML = response.json();
+    });
   }
 </script>
 </html>
