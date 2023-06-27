@@ -4,8 +4,13 @@
   <meta charset="utf-8">
 </head>
 <body>
-  <h1>how to web hosting</h1>
+  <button onClick="getRandomNo()"></button>
+  <p2 id="result"></p2>
 </body>
 <script>
+  function getRandomNo() {
+    let randNo = Math.random();
+    document.getElementById("result").innerHTML = randNo;
+  }
 </script>
 </html>
