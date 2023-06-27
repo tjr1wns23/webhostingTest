@@ -4,13 +4,24 @@
   <meta charset="utf-8">
 </head>
 <body>
-  <button onClick="getRandomNo()"></button>
+  <button onClick="getRandomNo()">주사위 굴리기</button>
+  <br>
   <p2 id="result"></p2>
+
+  <button onClick="getRandomByServer()">서버 주사위 굴리기</button>
+  <br>
+  <p2 id="retrunByServer"></p2>
 </body>
 <script>
   function getRandomNo() {
-    let randNo = Math.random();
+    let randNo = Math.ceil(Math.random()*6);
     document.getElementById("result").innerHTML = randNo;
+  }
+
+  function getRandomByServer() {
+    fetch("./random.php").then((response) => {
+      document.getElementById("retrunByServer").innerHTML = response;
+    }); 
   }
 </script>
 </html>
