@@ -4,26 +4,32 @@
   <meta charset="utf-8">
 </head>
 <body>
-  <button onClick="getRandomNo()">주사위 굴리기</button>
+  <button onClick="hitOne()">1대 때리기</button>
   <br>
-  <p2 id="result"></p2>
+  <p2 id="workInClient">0</p2>
 
   <br>
   <br>
 
-  <button onClick="getRandomByServer()">서버 주사위 굴리기</button>
+  <button onClick="hitByServerValue()">서버 값만큼 때리기</button>
   <br>
-  <p2 id="retrunByServer"></p2>
+  <p2 id="retrunByServer">0</p2>
+
 </body>
 <script>
-  function getRandomNo() {
-    let randNo = Math.ceil(Math.random()*6);
-    document.getElementById("result").innerHTML = randNo;
+  function hitOne() {
+    let beforeValue = document.getElementById("workInClient").innerText;
+    let afterValue = parseInt(beforeValue) + 1;
+    document.getElementById("workInClient").innerHTML = afterValue;
   }
 
-  function getRandomByServer() {
-    fetch("./random.html").then((response) => {
-      document.getElementById("retrunByServer").innerHTML = response.json();
+  function hitByServerValue() {
+    fetch('abc.json')
+    .then((data) => data.json())
+    .then((obj) => {
+      let beforeValue = document.getElementById("retrunByServer").innerText;
+      let afterValue = parseInt(beforeValue) + obj['1'];
+      document.getElementById("retrunByServer").innerHTML = afterValue;
     });
   }
 </script>
