@@ -1,36 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>혜진스</title>
   <meta charset="utf-8">
 </head>
 <body>
-  <button onClick="hitOne()">1대 때리기</button>
-  <br>
-  <p2 id="workInClient">0</p2>
-
-  <br>
-  <br>
-
-  <button onClick="hitByServerValue()">서버 값만큼 때리기</button>
-  <br>
-  <p2 id="retrunByServer">0</p2>
-
+  <div>sss</div>
 </body>
 <script>
-  function hitOne() {
-    let beforeValue = document.getElementById("workInClient").innerText;
-    let afterValue = parseInt(beforeValue) + 1;
-    document.getElementById("workInClient").innerHTML = afterValue;
-  }
 
-  function hitByServerValue() {
-    fetch('abc.json')
-    .then((data) => data.json())
-    .then((obj) => {
-      let beforeValue = document.getElementById("retrunByServer").innerText;
-      let afterValue = parseInt(beforeValue) + obj['1'];
-      document.getElementById("retrunByServer").innerHTML = afterValue;
-    });
-  }
 </script>
 </html>
